@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Winterfell</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+
+</head>
+<body>
+    <div id="sidebar">
+        <div class="company">
+            <h1>Winterfell</h1>
+        </div>
+        <hr>
+        <br>
+        <div>
+            <img src="../../assets/img/material-icons/account.png" alt="" class="account">
+            <span id="user">root</span>
+        </div>
+        <br>
+        <hr>
+           <ul id="nav-side-bar">
+               <li class="inactive">
+                   <img class="icons" src="../../assets/img/material-icons/hotel.png" alt="">
+                   <a class="activeBtn" href="hotel.html">
+                       <i>Hotel</i>
+                   </a>
+               </li>
+               <li class="inactive">
+                   <img class="icons" src="../../assets/img/material-icons/ic_person.png" alt="">
+                   <a href="personal.html">
+                       <i>Personal</i>
+                   </a>
+               </li>
+               <li class="inactive" >
+                   <img class="icons" src="../../assets/img/material-icons/service.png"  alt="">
+                   <a  href="instalaciones.html">
+                       <i>Instalaciones</i>
+                   </a>
+               </li>
+               <li class="inactive">
+                   <div>
+                       <img class="icons" src="../../assets/img/material-icons/close.png" alt="">
+                       <a href="login.html">
+                           <i>Cerrar Sesion</i>
+                       </a>
+                   </div>
+               </li>
+           </ul>
+    </div>
+    <div id="main">
+            <div class="toggle-btn" onclick="open_close()">
+                    <span>&#9776</span>
+                </div>
+                <div id="menu1" class='instalaciones'>
+                        
+        <h2>Hotel</h2>
+        <ul class="lista-instalaciones clearfix" id="menu">
+            <li>
+                <a onclick="mostrarnreserv()">
+                                <div class="container">
+                                        <div class="middle-vis">
+                                          <h3>Nuevas reservaciones</h3>
+                                              </div>
+                                          <div class="text2">Hacer una Reservacion</div>
+                                          <div class="text">Añadir Huespedes a la reservacion</div>
+                                          <div class="text"> </div>
+                                          <div class="text"> </div>
+                                          <a class="abtn" >Ver</a>
+                                </div>
+                            </a>
+            </li>
+            <li>
+                <a onclick="mostrarnewclients()">
+                                    <div class="container">
+                                            <div class="middle-vis">
+                                                    <h3>Nuevos Clientes</h3>
+                                                  </div>
+                                              <div class="text2">Registrar un nuevo cliente</div>
+                                              <div class="text"> </div>
+                                              <div class="text"> </div>
+                                              <div class="text"> </div>
+                                              <div class="text"> </div>
+                                              <a class="abtn">Ver</a>
+                                    </div>
+                                </a>   
+            </li>
+            <li>
+                <a onclick="mostrartable2()">
+                                <div class="container">
+                                        <div class="middle-vis">
+                                                <h3>Huespedes</h3>
+                                              </div>
+                                          <div class="text2">Informacion acerca de Huespedes</div>
+                                              <div class="text">Ver datos de los huespedes y demas información</div>
+                                              <div class="text"> </div>
+                                          <a class="abtn" >Ver</a>
+                                </div>
+                            </a>
+        </li>
+        <li>
+                <a onclick="mostrartable()">
+                <div class="container">
+                        <div class="middle-vis">
+                                <h3>Habitaciones</h3>
+                              </div>
+                          <div class="text2">Informacion acerca de las habitaciones</div>
+                              <div class="text">Ver los costos de las habitaciones</div>
+                              <div class="text">Ver la disponibilidad de las habitaciones</div>
+                          <a class="abtn">Ver</a>
+                </div>
+                </a>
+        
+</li>       
+  </ul>
+    </div></div>
+        <div id="table" style='display:none;'>
+                <h2>Habitaciones</h2>
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#Hab</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">type</th>
+                        <th scope="col">price($)</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div id="tableguest" style='display:none;'>
+                <h2>Huespedes</h2>
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#Huesped</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">#Habitacion</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody2">
+                    </tbody>
+                </table>
+            </div>
+            <div id="new-client" style="display: none;">
+                    <div class="reserv-box">
+                    <h1>Nuevo Cliente</h1>
+                    <form style='float:left' id="nuevo cliente">
+                      <p >Documento Cliente</p>
+                      <p style="padding: left 38%;;">Fecha Nacimiento</p>
+                      <br>
+                      <input type="text" name="#">
+                      <input type="date" name="dateofbirth" id="dateofbirth" style="left:9vw;">
+                      <br>
+                      <p>Cliente (Nombre y Apellido)</p>
+                      <br>
+                      <input type="text2" name="#">
+                      <br>
+                      <p>Direccion</p>
+                      <br>
+                      <input type="text2" name="#">
+                      <br>
+                      <p>Cod. Postal</p>
+                      <br>
+                      <input type="text2" name="#">
+                      <button type="button" id="#"style="width:55vw;" onclick="registrarcliente()">Registrar</button>
+                    </form>
+                    </div>
+                </div>
+                <div id="n-reserv"class="reserv-box" style="display:none;">
+                  <div id="new-reserv">
+                        <h1>Nueva Reservacion</h1>
+                
+                        <form style='float:left'>
+                          <p>Documento Cliente</p>
+                          <p style="padding-left:38%;">Verificar</p>
+                          <br>
+                            <input type="text" id="searchcliente" placeholder="Documento...">
+                            <button type="button" onclick="verificarcliente()" style="left: 9vw;">Verificar</button>
+                            
+                                  <br>
+                                  <p>Cliente (Nombre y Apellido)</p>
+                          <br>
+                          <input type="text2" id="reserv-name">
+                          <br>
+                          <p>Direccion</p>
+                          <br>
+                          <input type="text2" id="reserv-direction">
+                          <br>
+                          <p>Huespedes</p><p style="padding-left:38%;">Tipo Habitacion</p>
+                          <br>
+                            <select class="select-opc" id="chuesp">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                              </select>
+                              <select id="tipo-hab"class="select-opc"style="left:9vw;">
+                                </select>
+                                <br>
+                            <button type="button" onclick="mostraropcreserv()" id="#" style="width: 55vw">Siguiente</button>
+                        </form>
+                      </div>
+                      <div id="reserv-opc" style="display: none;">
+                            <h1>Opciones de Reservacion</h1>
+                            <form style='float:left'>
+                              <p >Habitacion</p>
+                              <p style="padding-left:38%;">Tipo de pago</p>
+                              <br>
+                              <select class="select-opc"id="nhab" ></select>
+                              <select class="select-opc"id="tpago" style="left:9vw;width: 23vw;"></select>
+                                <br>
+                                <p>Dia de inicio</p>
+                                <p style="padding-left:38%;">Dias</p>
+                              <br>
+                              <input type="date" id="init">
+                              <input type="text2" id="end" onkeyup="changefinalprice()" style="left:9vw;width: 23vw;">
+                              <br>
+                              <p>Costo</p>
+                              <br>
+                              <input type="text2" id="pfinal">
+                                <button onclick="mostrarnewhuespedes()" type="button" id="#"style="width: 55vw;">Siguiente</button>
+                            </form>
+                        </div>
+                      <div id="huespedes" style="display: none;">
+                          <h1>Huespedes</h1>
+                
+                          <form style='float:left'>
+                            <p ># Huesped</p>
+                            <p style="padding-left:38%;">Edad Huesped</p>
+                            <br>
+                            <select class="select-opc"id="nhuesped" onchange="manejarhuespedes()"></select>
+                              <input onkeyup="manejarhuespedes()" type="text2" id="edadhuesped" style="left:9vw;width: 23vw;">
+                                <br>
+                                <p>Nombre y Apellido</p>
+                            <br>
+                            <input onkeyup="manejarhuespedes()" type="text2" id="namehuesped">
+                            <br>
+                            <p>Documento</p>
+                            <br>
+                            <input onkeyup="manejarhuespedes()" type="text2" id="dochuesped">
+                              <button type="button" onclick="registarreserv()" id="#"style="width: 55vw;">Terminar</button>
+                          </form>
+                      </div>
+    </div>
+    <script src="../../assets/js/main.js"></script>
+    <script type="text/javascript">
+    var bandreserv=0,canthuespedes=0,huespedes;
+        function mostrarnewclients(){
+            document.getElementById('menu1').style.display = 'none';
+            document.getElementById('new-client').style.display = 'block';
+        }
+        function mostrarnreserv(){
+            getthab();
+            document.getElementById("reserv-name").readOnly = true;
+            document.getElementById("reserv-direction").readOnly = true;
+            document.getElementById('menu1').style.display = 'none';
+            document.getElementById('n-reserv').style.display = 'block';
+        }
+        var dateinit;
+        function mostrarnewhuespedes(){
+            if(Date.parse(document.getElementById("init").value)){
+                dateinit = Date.parse(document.getElementById("init").value);
+                document.getElementById("reserv-opc").style.display = 'none';
+            document.getElementById("huespedes").style.display = 'block';
+            canthuespedes=document.getElementById("chuesp").value;
+            huespedes=[];
+            for(var i=1;i<=canthuespedes;i++){
+                document.getElementById('nhuesped').options.add(new Option(i,i));
+                huespedes.push([" "," "," "]);
+            }
+            }else{
+                alert("Fecha de inicio no seleccionada");
+            }
+            }
+        var shab;
+        var price;
+        function mostraropcreserv(){
+            if(bandreserv!=0){
+                shab=document.getElementById("tipo-hab").value;
+            getthabn();
+            gettpago();
+            document.getElementById('end').value=1;
+            document.getElementById('pfinal').readOnly = true;
+            document.getElementById('new-reserv').style.display = 'none';
+            document.getElementById("reserv-opc").style.display = 'block';
+        }else{
+                alert("No se puede continuar hasta seleccionar un cliente valido");
+            }
+        }
+        function changefinalprice(){
+            document.getElementById('pfinal').value=price*document.getElementById('end').value;
+        }
+        var last=0;
+        function manejarhuespedes(){
+            var n = document.getElementById('nhuesped').value-1;
+                huespedes[last][0]=document.getElementById("edadhuesped").value;
+                huespedes[last][1]=document.getElementById("namehuesped").value;
+                huespedes[last][2]=document.getElementById("dochuesped").value;
+                last=n;
+                document.getElementById("edadhuesped").value=huespedes[last][0];
+                document.getElementById("namehuesped").value=huespedes[last][1];
+                document.getElementById("dochuesped").value=huespedes[last][2];
+            }
+        function registarreserv(){
+            let b=1;
+            for(let i=0;i<huespedes.length;i++){
+                if(huespedes[i].includes("")){
+                    b=0;break;
+                }
+            }
+            if(b==1){
+                registfinal();
+            }else{
+                alert("Faltan datos de los huespedes");
+            }
+        }
+        function mostrartable(){
+            document.getElementById('menu1').style.display = 'none';
+            document.getElementById('table').style.display = 'block';
+            getrows();
+        }
+        function mostrartable2(){
+            document.getElementById('menu1').style.display = 'none';
+            document.getElementById('tableguest').style.display = 'block';
+            getrows2()
+        }
+        var cid;
+    function verificarcliente(){
+        var x = document.getElementById('searchcliente');
+        if(!x.value==""){
+            var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`client`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                        rows.forEach(function(rows){
+                            if(rows.documento==x.value){
+                                document.getElementById('reserv-name').value=rows.nombres;
+                                document.getElementById('reserv-direction').value=rows.direccion;
+                                bandreserv=1;
+                                cid=rows.client_id;
+                            }
+                        });
+                    if(bandreserv==0){
+                        document.getElementById('reserv-name').value="";
+                        document.getElementById('reserv-direction').value="";
+                        bandreserv=0;
+                    alert("Cliente no registrado o documento mal ingresado")
+                    }
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+            
+        }else{
+            document.getElementById('reserv-name').value="";
+                        document.getElementById('reserv-direction').value="";
+                        bandreserv=0;
+            alert("Documento vacio");
+        }
+    }
+    var payid;
+    function registfinal(){
+        regguest();
+        reginvoice();
+        regroomupdate()
+    }
+    function regroomupdate(){
+    const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "UPDATE `hotel`.`rooms` set `status` = ? WHERE `room_id` = ?";
+        con.query(sql, [0,document.getElementById("nhab").value], function (err, result) {
+            console.log(0+","+document.getElementById("nhab").value);
+        if (err) throw err;
+            });
+        });
+    }
+    function checkpayid(){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT `payment_id` FROM `hotel`.`payments`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   l4(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function l4(rows){
+                   var html = '';
+                   var ranks =[],band=0/*<option value="0">hab-tip1</option>*/
+                   rows.forEach(function(rows){
+                        payid=rows.payment_id;
+                });
+                var dateSplit = document.getElementById("init").value.split("-");
+                var x = parseInt(""+dateSplit[2]);
+                var y = document.getElementById("end").value
+                dateSplit[2] = (((x*2)/2)+((y*2)/2));
+                x = parseInt(""+dateSplit[1]);
+                dateSplit[1]=(2*x)/2
+                x = parseInt(""+dateSplit[0]);
+                dateSplit[0]=(2*x)/2
+                if(dateSplit[2]<10){
+                    regbooking(dateSplit[0] + "-" + dateSplit[1] + "-0" + dateSplit[2])
+                }else{
+                regbooking(dateSplit[0] + "-" + dateSplit[1] + "-" + dateSplit[2])
+                }
+               }
+    function reginvoice(){
+        const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `hotel`.`invoice` (`amount`) VALUES ?"
+        var values = [[document.getElementById("pfinal").value]];
+        con.query(sql, [values], function (err, result) {
+            regpayment(document.getElementById("tpago").value,document.getElementById("pfinal").value);
+        if (err) throw err;
+            });
+        });
+    }
+    function regbooking(enddate){
+        const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `hotel`.`booking` (`start_bk`, `end_bk`, `payment`, `room_id`, `client_id`) VALUES ?"
+        var values = [[document.getElementById("init").value,enddate,payid,document.getElementById("nhab").value,cid]];
+        alert("Regisrado con exito")
+        con.query(sql, [values], function (err, result) {
+        if (err) throw err;
+            });
+        });
+    }
+    function regpayment(type,value){
+        const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `hotel`.`payments` (`payment_type`, `value`) VALUES ?"
+        var values = [[type,value]];
+        con.query(sql, [values], function (err, result) {
+            checkpayid();
+        if (err) throw err;
+            });
+        });
+    }
+    function regguest(){
+        const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `hotel`.`guest` (`type`, `room_id`, `name`, `edad`, `documento`) VALUES ?"
+        var values = [];
+        for(let i=0;i<huespedes.length;i++){
+            values.push([1,document.getElementById("nhab").value,huespedes[i][1],huespedes[i][0],huespedes[i][2]]);
+        }
+        con.query(sql, [values], function (err, result) {
+        if (err) throw err;
+            });
+        });
+    }
+    function registrarcliente(){
+            var x= document.getElementById('nuevo cliente');
+            var documento = x.elements[0].value;
+            var fnacimiento = x.elements[1].value;
+            var nombre = x.elements[2].value;
+            var direccion = x.elements[3].value;
+            var cpostal = x.elements[4].value;
+            if(!(documento=="" ||document==null) && !(fnacimiento=="" ||fnacimiento==null) && 
+            !(direccion=="" ||direccion==null) && !(cpostal=="" ||cpostal==null)){
+              
+              var mysql = require('mysql');
+              var con= mysql.createConnection({
+                host     : 'localhost',
+                port: 3307,
+                user     : 'newuser',
+                password : 'root',
+                database : 'hotel',
+                insecureAuth: true
+                });
+                con.connect(function(err) {
+                if (err) throw err;
+                var sql = "INSERT INTO `hotel`.`client` (`client_type`, `documento`, `nombres`, `direccion`, `cod_postal`) VALUES ?"
+                var values = [[1,documento,nombre,direccion,cpostal]];
+                con.query(sql, [values], function (err, result) {
+                    alert("Registrado")
+    if (err) throw err;
+  });
+});
+            }
+          }
+  </script>
+       <script>
+           function getrows2(){
+               // Get the mysql service
+               getr(function(rows){
+                   var html = '';
+                   rows.forEach(function(rows){
+                       if(rows.room_type==rows.id_rank){
+                       html += '<tr>';
+                       html += '<td>';
+                       html += rows.guest_id;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.name;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.edad;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.documento;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.room_id;
+                       html += '</td>';
+                       html += '</tr>';
+                    }
+                   });
+                   document.getElementById('tbody2').innerHTML = html;
+               });
+           };
+           function getr(callback){
+               // Add the credentials to access your database
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`guest`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   callback(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function getrows(){
+               // Get the mysql service
+               getFirstTenRows(function(rows){
+                   var html = '';
+                   rows.forEach(function(rows){
+                       if(rows.room_type==rows.id_rank){
+                       html += '<tr>';
+                       html += '<td>';
+                       html += rows.room_id;
+                       html += '</td>';
+                       html += '<td>';
+                        if(rows.status==1){
+                            html +=  "<span style='color:green;'>Disponible</span>";
+                        }else{
+                            html += "<span style='color:red;'>No disponible</span>";
+                        }
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.description;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.room_cost;
+                       html += '</td>';
+                       html += '</tr>';
+                    }
+                   });
+                   document.getElementById('tbody').innerHTML = html;
+               });
+           };
+           function getFirstTenRows(callback){
+               // Add the credentials to access your database
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`rooms`,`hotel`.`room_ranks`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   callback(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function getthab (){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`rooms`,`hotel`.`room_ranks`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   l(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function l(rows){
+                   var html = '';
+                   var ranks =[],band=0/*<option value="0">hab-tip1</option>*/
+                   rows.forEach(function(rows){
+                       if(rows.room_type==rows.id_rank && rows.status==1 && !ranks.includes(rows.description)){
+                        ranks.push(rows.description);
+                        band=1;
+                       }
+                       if(band!=0 && ranks!=[]){
+                        document.getElementById('tipo-hab').options.add(new Option(ranks[ranks.length-1],ranks[ranks.length-1]));
+                       band=0;
+                    }
+            
+                   });
+                   
+               }
+               function getthabn (){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`rooms`,`hotel`.`room_ranks`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   l2(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function l2(rows){
+                   var html = '';
+                   rows.forEach(function(rows){
+                       if(rows.room_type==rows.id_rank && rows.status==1 && shab==rows.description){
+                        document.getElementById("nhab").options.add(new Option(rows.room_id,rows.room_id));
+                        price=rows.room_cost;
+                        changefinalprice()
+                    }
+                   });
+                   
+               }
+               function gettpago (){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`payments_type`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   l3(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function l3(rows){
+                   var html = '';
+                   var ranks =[],band=0/*<option value="0">hab-tip1</option>*/
+                   rows.forEach(function(rows){
+                        ranks.push(rows.description);
+                        document.getElementById("tpago").options.add(new Option(rows.description,rows.payment_id));
+                   });
+                   
+               }
+       </script>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

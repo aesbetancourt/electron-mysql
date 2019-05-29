@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /*width: 100vw;*/
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+}
+
+#sidebar {
+    position: fixed;
+    width: 27%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9)), url("../../assets/img/sidebar.jpg") no-repeat center top;
+    background-size: cover;
+    box-shadow: 0.55vw 0.55vw 1.11vw gray;
+    left: -25%;
+    transition: all 500ms linear;
+    overflow: auto;
+}
+
+#sidebar .company h1{
+    font-size: 5vw;
+    margin-bottom: 2.22vw;
+    text-align: center;
+
+}
+
+#sidebar ul li{
+    text-align: left;
+    padding: 2vh 0vw;
+    list-style: none;
+    margin-left: -2vw;
+    text-decoration: none;
+    border-radius: .55vw;
+    margin: 1.11vw;
+    z-index: 1;
+}
+::-webkit-scrollbar{
+width: 0px;
+background: transparent;
+}
+
+hr {
+    opacity: 0.5;
+    height: 1px;
+    border: none;
+    background-color: orangered;
+}
+
+h1 {
+    color: aliceblue;
+}
+
+a {
+    text-decoration: none;
+    color: darkgrey;
+    font-family: 'Lato', sans-serif;
+    font-size: 3vw;
+}
+.abtn {
+  margin-left: 27vw;
+  text-align: end right;
+}
+
+a.activeBtn{
+    text-align: center;
+}
+a.activeBtn:hover {
+    background-color: rgba(75,75,75,0.3);
+    color: aliceblue;
+  }
+  a.activeBtn:last-child {
+    padding: 4px;
+    background:  orangered;
+    border-radius: 10px;
+    color: aliceblue;
+}
+.inactive:hover{
+    background-color: rgba(75,75,75,0.3);
+    color: aliceblue;
+}
+
+
+.icons{
+    vertical-align: text-top;
+}
+
+.account{
+    vertical-align: middle;
+    padding: 0.22vw 0.74vw;
+}
+
+#user{
+    font-size: 1.47vw;
+    color: darkgrey;
+    font-weight: bold;
+}
+
+
+.toggle-btn{
+  position: absolute;
+  margin-left: -1%;
+  top: 1%;
+  cursor: pointer;
+  transition: all 500ms linear;
+}
+
+#sidebar.active{
+    left: 0;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left 500ms linear; /* If you want a transition effect */
+    padding: 2.21vw 1.47vw 1.47vw 4.41vw;
+    /*border: 1px  black solid;*/
+
+}
+img.icons{
+    width: 1.32vw;
+    height: 1.32vw;
+}
+h2{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2vw;
+    text-transform: uppercase;
+    text-align: center;
+}
+h3{
+    color: orangered;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    font-size: 2vw;
+}
+/*hover para imagenes*/
+.container{
+  position: relative;
+  padding: 2.94vw 0 0 0;
+  margin-top: -10vw;
+  margin-left: -35%;
+  margin-right: 100%;
+  height: 20vw;
+  width: 35vw;
+  backface-visibility: hidden;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);border-radius: 0.25rem;
+}
+
+.middle-vis {
+  transition: .5s ease;
+  opacity: 1;
+  position: absolute;
+  height: 20vw;
+  width: 35vw;
+  text-align: center;
+  margin-top: -2.2vw;
+}
+.text {
+  text-align: left;color: darkgray;
+  font-size: 1.5vw;
+  padding: 1.18vw 2.35vw;
+}
+.text2 {
+  
+  text-align: left;
+  font-size: 1.5vw;
+  padding: 1.18vw 2.35vw;
+}
+/*formularios*/
+.select-opc{
+  position: relative;
+  background-color: darkgray;
+  font-size: 16px;
+  height: 5.8vh;
+  width: 23vw;
+    border-radius: 8px;
+    border-color: transparent;
+    margin-bottom: 3.5vh;
+  margin-top: 2vh;
+  }
+input[type=text] {
+  margin-bottom: 3.5vh;
+  margin-top: 2vh;
+  height: 5.8vh;
+  width: 23vw;
+  box-sizing: border-box;
+  border: 2px solid darkgray;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: darkgray;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 6px 0;
+
+}
+[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+  position: relative;
+  height: 5.8vh;
+  width: 23vw;
+  box-sizing: border-box;
+  border: 2px solid darkgray;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: darkgray;
+  padding: 6px 0;
+  margin-bottom: 3.5vh;
+  margin-top: 2vh;
+}
+input[type=text2] {
+  position: relative;
+  height: 5.8vh;
+  width: 55vw;
+  box-sizing: border-box;
+  border: 2px solid darkgray;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: darkgray;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 6px 0;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  margin-bottom: 3.5vh;
+  margin-top: 2vh;
+}
+.reserv-box{
+  transition: .5s ease;
+  width: 66%;
+  height: 85vh;
+  background-color: #010D26;
+  float: left;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, 0);
+  box-sizing: border-box;
+  padding: 40px 30px;
+  border-radius: 2px;
+}
+.reserv-box h1{
+  margin-top: -5vh;
+  padding: 0 0 2vh;
+  display: block;
+  font-size: 4.4vh;
+  text-align: center;
+  color: darkgrey;
+}
+
+.reserv-box p{
+  margin: 0;
+  padding: 0;
+  display: inline;
+  font-weight: bold;
+  font-size: 2.6vh;
+  color: darkgrey;
+}
+
+.reserv-box button{
+  border: none;
+  outline: none;
+  height: 5.8vh;
+  width: 23vw;
+  position: relative;
+  border-radius: 2vh;
+  background-color: darkgrey;
+  font-size: 2.8vh;
+  cursor: pointer;
+}
+
+.select-selected {
+  background-color: darkgray;
+  border-radius: 2vh;
+}
+/*style items (options):*/
+.select-items {
+  border-radius: 10px;
+  position: absolute;
+  background-color: darkgray;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/*Instalaciones*/
+
+
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+
+ul.lista-instalaciones >li{
+  margin-right: 12%;
+  padding-top: 3.7vw;
+  margin-left: 12%;
+  margin-bottom: 3%;
+  margin-top: 10%;
+  list-style: none;
+  float: left;
+  height: 12.5vw;
+  width: 22.05vw;
+}
+ul.lista-instalaciones li ul li{
+  list-style: none;
+}
+div.tabla-instalaciones ul li{
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1.03vw;
+  margin-bottom: 1.47vw;
+  text-transform: uppercase;
+  color: #868686;
+  line-height: 1.91vw;
+}
+div.tabla-instalaciones ul li::before{
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 0.37vw;
+  font-size: 1.47vw;
+  color: green;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 900;
+  content: "\f00c";
+}
+

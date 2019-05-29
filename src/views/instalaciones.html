@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winterfell</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+ <div id="sidebar">
+     <div class="company">
+        <h1>Winterfell</h1>
+     </div>
+     <hr>
+     <br>
+     <div>
+         <img src="../../assets/img/material-icons/account.png" alt="" class="account">
+         <span id="user">root</span>
+     </div>
+     <br>
+     <hr>
+        <ul id="nav-side-bar">
+            <li class="inactive">
+                <img class="icons" src="../../assets/img/material-icons/hotel.png" alt="">
+                <a  href="hotel.html">
+                    <i>Hotel</i>
+                </a>
+            </li>
+            <li class="inactive">
+                <img class="icons" src="../../assets/img/material-icons/ic_person.png" alt="">
+                <a href="personal.html">
+                    <i>Personal</i>
+                </a>
+            </li>
+            <li class="inactive" >
+                <img class="icons" src="../../assets/img/material-icons/service.png"  alt="">
+                <a class="activeBtn"  href="instalaciones.html">
+                    <i>Instalaciones</i>
+                </a>
+            </li>
+            <li class="inactive">
+                <div>
+                    <img class="icons" src="../../assets/img/material-icons/close.png" alt="">
+                    <a href="login.html">
+                        <i>Cerrar Sesion</i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+ </div>
+ <div id="main">
+        <div class="toggle-btn" onclick="open_close()">
+                <span>&#9776</span>
+            </div>
+    <div class='instalaciones' id="menu1">
+            
+        <h2>Instalaciones</h2>
+        <ul class="lista-instalaciones clearfix" id="menu">
+            <li>
+                <a onclick="mostrarrentcar()">
+                                <div class="container">
+                                        <div class="middle-vis">
+                                          <h3>Alquiler Vehiculos</h3>
+                                              </div>
+                                          <div class="text2">Rentar un vehiculo</div>
+                                          <div class="text2">Ver vehiculos disponibles</div>
+                                          <div class="text"> </div>
+                                          <div class="text"> </div>
+                                          <a class="abtn" >Ver</a>
+                                </div>
+                            </a>
+            </li>
+            <li>
+                <a onclick="mostrarrestreserv()">
+                                    <div class="container">
+                                            <div class="middle-vis">
+                                                    <h3>Restaurant</h3>
+                                                  </div>
+                                              <div class="text2">Hacer una reservacion</div>
+                                              <div class="text"></div>
+                                              <div class="text"> </div>
+                                              <div class="text"> </div>
+                                              <div class="text"> </div>
+                                              <a class="abtn">Ver</a>
+                                    </div>
+                                </a>   
+            </li>
+            <li>
+                <a onclick="mostrarparking()">
+                                <div class="container">
+                                        <div class="middle-vis">
+                                                <h3>Estacionamiento</h3>
+                                              </div>
+                                          <div class="text2">Ver donde esta mi vehiculo</div>
+                                              <div class="text2">Ver puestos disponibles</div>
+                                              <div class="text"> </div>
+                                          <a class="abtn" >Ver</a>
+                                </div>
+                            </a>
+        </li>
+        <li>
+                <a onclick="mostrarmenu()">
+                                <div class="container">
+                                        <div class="middle-vis">
+                                                <h3>Menu Restaurant</h3>
+                                              </div>
+                                          <div class="text2">Ver los productos disponible</div>
+                                              <div class="text2">Ver precios de los productos</div>
+                                              <div class="text"> </div>
+                                          <a class="abtn" >Ver</a>
+                                </div>
+                            </a>
+        </li>       
+  </ul>
+      </div>
+      <div id="table" style='display:none;'>
+            <h2>Puestos de vehiculos</h2>
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">#Puesto</th>
+                    <th scope="col">Habitacion</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+        <div id="table2" style='display:none;'>
+                <h2>Menu del restaurante</h2>
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody2">
+                    </tbody>
+                </table>
+            </div>
+            <div id="reserv-rest" class="reserv-box" style="display:none;">
+                    <h1>Nueva Reservacion Restaurant</h1>
+            
+                    <form style='float:left'>
+                      <p>Documento Cliente</p>
+                      <p style="padding-left:38%;">Verificar</p>
+                      <br>
+                        <input type="text" id="searchcliente" placeholder="Documento...">
+                        <button type="button" onclick="verificarcliente()" style="left: 9vw;">Verificar</button>
+                        
+                              <br>
+                              <p>Cliente (Nombre y Apellido)</p>
+                      <br>
+                      <input type="text2" id="reserv-name">
+                      <br>
+                      <p>Direccion</p>
+                      <br>
+                      <input type="text2" id="reserv-direction">
+                      <br>
+                      <p>Fecha</p>
+                      <p style="padding-left:38%;">Mesa</p>
+                      <br>
+                      <input type="date" id="init2">
+                        <select style="left: 9vw;" class="select-opc" id="mesa">
+                        </select>
+                            <br>
+                        <button type="button" onclick="regrest()" id="#" style="width: 55vw">Registrar</button>
+                    </form>
+                  </div>
+      <div id="reserv-opc" class="reserv-box" style="display: none;">
+            <h1>Opciones de Renta de vehiculo</h1>
+            <form style='float:left'>
+              <p >Vehiculo</p>
+              <p style="padding-left:38%;">Tipo de pago</p>
+              <br>
+              <select class="select-opc"id="nhab" ></select>
+              <select class="select-opc"id="tpago" style="left:9vw;width: 23vw;"></select>
+                <br>
+                <p>Dia de inicio</p>
+                <p style="padding-left:38%;">Dias</p>
+              <br>
+              <input type="date" id="init">
+              <input type="text2" id="end" onkeyup="changefinalprice()" style="left:9vw;width: 23vw;">
+              <br>
+              <p>Costo</p>
+              <br>
+              <input type="text2" id="pfinal">
+              <br>
+              <br>
+              <br>
+                <button onclick="regrentacar()" type="button" id="#"style="width: 55vw;">Registrar</button>
+            </form>
+        </div>
+      <div id="new-alq" class="reserv-box" style="display:none;">
+        <h1>Nueva Renta vehiculo</h1>
+
+        <form style='float:left'>
+          <p>Documento Cliente</p>
+          <p style="padding-left:38%;">Verificar</p>
+          <br>
+            <input type="text" id="searchcliente" placeholder="Documento...">
+            <button type="button" onclick="verificarcliente()" style="left: 9vw;">Verificar</button>
+            
+                  <br>
+                  <p>Cliente (Nombre y Apellido)</p>
+          <br>
+          <input type="text2" id="reserv-name">
+          <br>
+          <p>Direccion</p>
+          <br>
+          <input type="text2" id="reserv-direction">
+          <br>
+          <p>Tipo</p>
+          <br>
+            <select class="select-opc" id="t-vehiculo">
+            </select>
+                <br>
+            <button type="button" onclick="mostraropcrenta()" id="#" style="width: 55vw">Siguiente</button>
+        </form>
+      </div>
+
+ </div>
+<script src="../../assets/js/main.js"></script>
+<script type="text/javascript">
+    var bandreserv=0,tveh,cid=0;
+    function mostrarparking(){
+        getrows2();
+        document.getElementById('menu1').style.display = 'none';
+        document.getElementById("table").style.display = 'block';
+    }
+    function mostrarmenu(){
+        getrows();
+        document.getElementById('menu1').style.display = 'none';
+        document.getElementById("table2").style.display = 'block';
+    }
+    function mostrarrestreserv(){
+        getnmesa ()
+        document.getElementById('menu1').style.display = 'none';
+        document.getElementById("reserv-rest").style.display = 'block';
+    }
+        function mostrarrentcar(){
+            gettveh();
+            document.getElementById("reserv-name").readOnly = true;
+            document.getElementById("reserv-direction").readOnly = true;
+            document.getElementById('menu1').style.display = 'none';
+            document.getElementById("new-alq").style.display = 'block';
+        }
+        function mostraropcrenta(){
+            if(bandreserv!=0){
+                tveh=document.getElementById("t-vehiculo").value;
+                console.log(tveh);
+            getthabn();
+            gettpago();
+            document.getElementById('end').value=1;
+            document.getElementById('pfinal').readOnly = true;
+            document.getElementById('new-alq').style.display = 'none';
+            document.getElementById("reserv-opc").style.display = 'block';
+        }else{
+                alert("No se puede continuar hasta seleccionar un cliente valido");
+            }
+        }
+        function regrest(){
+            if (cid==0){
+                alert("No a seleccionado un cliente valido")
+            }else{
+                refrestbooking()
+            }
+        }
+        function refrestbooking(){
+                const mysql      = require('mysql');
+                const con= mysql.createConnection({
+                host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `hotel`.`rest_booking` (`client_id`, `day_time`, `table`) VALUES ?"
+        var values = [];
+        values.push([cid,document.getElementById("init2").value,document.getElementById("mesa").value]);
+        updvehstatustable();
+        con.query(sql, [values], function (err, result) {
+            
+        if (err) throw err;
+            });
+        });
+    }
+        function updvehstatustable(){
+        const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "UPDATE `hotel`.`hotel_restaurant` set `status` = ? WHERE `table_id` = ?";
+        con.query(sql, [0,document.getElementById("mesa").value], function (err, result) {
+            alert("La reservacion de la mesa "+document.getElementById("mesa").value+" fue registrada");
+        if (err) throw err;
+            });
+        });
+    }
+        function regrentacar(){
+            var dateSplit = document.getElementById("init").value.split("-");
+                var x = parseInt(""+dateSplit[2]);
+                var y = document.getElementById("end").value
+                dateSplit[2] = (((x*2)/2)+((y*2)/2));
+                x = parseInt(""+dateSplit[1]);
+                dateSplit[1]=(2*x)/2
+                x = parseInt(""+dateSplit[0]);
+                dateSplit[0]=(2*x)/2
+                const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `hotel`.`rental_vehicles` (`client_id`, `vehicle_type`, `start`, `end`)  VALUES ?"
+        var values = [];
+        if(dateSplit[2]<10){
+        values.push([cid,document.getElementById("t-vehiculo").value,document.getElementById("init").value,dateSplit[0] + "-" + dateSplit[1] + "-0" + dateSplit[2]]);
+        }else{
+        values.push([cid,document.getElementById("t-vehiculo").value,document.getElementById("init").value,dateSplit[0] + "-" + dateSplit[1] + "-" + dateSplit[2]]);
+        }updvehstatus();
+        con.query(sql, [values], function (err, result) {
+            
+        if (err) throw err;
+            });
+        });
+    }
+    function updvehstatus(){
+        const mysql      = require('mysql');
+      const con= mysql.createConnection({
+        host     : 'localhost',
+               port: 3307,
+               user     : 'newuser',
+               password : 'root',
+               database : 'hotel',
+               insecureAuth: true
+     });
+        con.connect(function(err) {
+        if (err) throw err;
+        var sql = "UPDATE `hotel`.`vehicles` set `status` = ? WHERE `id_vehicle` = ?";
+        con.query(sql, [0,document.getElementById("nhab").value], function (err, result) {
+            alert("El alquiler del vehiculo fue registrado");
+        if (err) throw err;
+            });
+        });
+    }
+
+        function gettveh (){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`vehicles`,`vehicle_types`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   var html = '',t=[],t2=[],cont=1;
+                   rows.forEach(function(rows){
+                       if(rows.id_type==rows.id_type && rows.status==1){
+                           if(!t.includes(rows.description)){
+                            t.push(rows.description);
+                            document.getElementById('t-vehiculo').options.add(new Option(rows.description,rows.id_type));
+                        }
+                       }
+                        
+                   });
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function getnmesa (){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`hotel_restaurant`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   rows.forEach(function(rows){
+                       if(rows.status==1){
+                            document.getElementById('mesa').options.add(new Option("Mesa "+rows.table_id,rows.table_id));
+                       }
+                        
+                   });
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function verificarcliente(){
+        var x = document.getElementById('searchcliente');
+        if(!x.value==""){
+            var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`client`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                        rows.forEach(function(rows){
+                            if(rows.documento==x.value){
+                                document.getElementById('reserv-name').value=rows.nombres;
+                                document.getElementById('reserv-direction').value=rows.direccion;
+                                bandreserv=1;
+                                cid=rows.client_id;
+                            }
+                        });
+                    if(bandreserv==0){
+                        document.getElementById('reserv-name').value="";
+                        document.getElementById('reserv-direction').value="";
+                        bandreserv=0;
+                    alert("Cliente no registrado o documento mal ingresado")
+                    }
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+            
+        }else{
+            document.getElementById('reserv-name').value="";
+                        document.getElementById('reserv-direction').value="";
+                        bandreserv=0;
+            alert("Documento vacio");
+        }
+    }
+    function getthabn (){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`vehicles`,`vehicle_types`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   var html = '';
+                   rows.forEach(function(rows){
+                    if(rows.id_type==rows.vehicle_type && rows.status==1 && tveh==rows.id_type){
+                        document.getElementById("nhab").options.add(new Option(rows.id_vehicle,rows.id_vehicle));
+                        price=rows.quantity;
+                        changefinalprice()
+                    }
+                   });
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function changefinalprice(){
+            document.getElementById('pfinal').value=price*document.getElementById('end').value;
+        }
+        function gettpago (){
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`payments_type`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   var html = '';
+                   var ranks =[],band=0/*<option value="0">hab-tip1</option>*/
+                   rows.forEach(function(rows){
+                        ranks.push(rows.description);
+                        document.getElementById("tpago").options.add(new Option(rows.description,rows.payment_id));
+                   });
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function getrows2(){
+               // Get the mysql service
+               getr(function(rows){
+                   var html = '';
+                   rows.forEach(function(rows){
+                       if(rows.room_type==rows.id_rank){
+                       html += '<tr>';
+                       html += '<td>';
+                       html += rows.stall_id;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.id_room;
+                       html += '</td>';
+                       html += '</tr>';
+                    }
+                   });
+                   document.getElementById('tbody').innerHTML = html;
+               });
+           };
+           function getr(callback){
+               // Add the credentials to access your database
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`parking`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   callback(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+           function getrows(){
+               // Get the mysql service
+               getr2(function(rows){
+                   var html = '';
+                   rows.forEach(function(rows){
+                       if(rows.room_type==rows.id_rank){
+                       html += '<tr>';
+                       html += '<td>';
+                       html += rows.id_food;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.name;
+                       html += '</td>';
+                       html += '<td>';
+                       html += rows.price+"$";
+                       html += '</td>';
+                       html += '</tr>';
+                    }
+                   });
+                   document.getElementById('tbody2').innerHTML = html;
+               });
+           };
+           function getr2(callback){
+               // Add the credentials to access your database
+               var connection = con();
+               // connect to mysql
+               connection.connect(function(err) {
+                   // in case of error
+                   if(err){
+                       console.log(err.code);
+                       console.log(err.fatal);
+                   }
+               });
+               // Perform a query
+               query = 'SELECT * FROM `hotel`.`restaurant_menu`;';
+               connection.query(query, function(err, rows, fields) {
+                   if(err){
+                       console.log("An error ocurred performing the query.");
+                       console.log(err);
+                       return;
+                   }
+                   callback(rows);
+               });
+               // Close the connection
+               connection.end(function(){
+                   // The connection has been closed
+               });
+           }
+</script>
+</body>
+</html>

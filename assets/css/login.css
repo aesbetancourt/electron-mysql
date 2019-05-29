@@ -1,0 +1,84 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(../img/bg-hotel.jpg) no-repeat center top;
+    background-size: cover;
+    font-family: 'Nunito', sans-serif;
+    height: 100vh;
+}
+
+.login-box{
+    width: 320px;
+    height: 350px;
+    background-color: #010D26;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 40px 30px;
+    border-radius: 2px;
+}
+
+.login-box h1{
+    margin: 0;
+    padding: 0 0 20px;
+    display: block;
+    font-size: 22px;
+    text-align: center;
+    color: darkgrey;
+}
+
+.login-box label{
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-weight: bold;
+    color: darkgrey;
+}
+
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"]{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    height: 40px;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+
+.login-box button{
+    border: none;
+    outline: none;
+    height: 40px;
+    border-radius: 5px;
+    background-color: crimson;
+    font-size: 18px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.login-box hr{
+    height: 1px;
+    background-color: crimson;
+    border: none;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.login-box a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: dimgrey;
+}
+
+.login-box a:hover{
+    color: darkgrey;
+}

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winterfell</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+ <div id="sidebar">
+     <div class="company">
+        <h1>Winterfell</h1>
+     </div>
+     <hr>
+     <br>
+     <div>
+         <img src="../../assets/img/material-icons/account.png" alt="" class="account">
+         <span id="user">root</span>
+     </div>
+     <br>
+     <hr>
+        <ul id="nav-side-bar">
+            <li class="inactive">
+                <img class="icons" src="../../assets/img/material-icons/hotel.png" alt="">
+                <a href="hotel.html">
+                    <i>Hotel</i>
+                </a>
+            </li>
+            <li class="inactive">
+                <img class="icons" src="../../assets/img/material-icons/ic_person.png" alt="">
+                <a  class="activeBtn" href="personal.html">
+                    <i>Personal</i>
+                </a>
+            </li>
+            <li class="inactive" >
+                <img class="icons" src="../../assets/img/material-icons/service.png"  alt="">
+                <a href="instalaciones.html">
+                    <i>Instalaciones</i>
+                </a>
+            </li>
+            <li class="inactive">
+                <div>
+                    <img class="icons" src="../../assets/img/material-icons/close.png" alt="">
+                    <a href="login.html">
+                        <i>Cerrar Sesion</i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+ </div>
+ <div id="main">
+     <div class="toggle-btn" onclick="open_close()">
+         <span>&#9776</span>
+     </div>
+     <div id="menu1" class='instalaciones'>
+
+         <h2>Hotel</h2>
+         <ul class="lista-instalaciones clearfix" id="menu">
+             <li>
+                 <a onclick="showInternalStaff()">
+                     <div class="container">
+                         <div class="middle-vis">
+                             <h3>Personal</h3>
+                         </div>
+                         <div class="text2">Personal interno del Hotel</div>
+                         <div class="text">Ver datos de empleados</div>
+                         <div class="text"> </div>
+                         <div class="text"> </div>
+                         <a class="abtn" >Ver</a>
+                     </div>
+                 </a>
+             </li>
+             <li>
+                 <a onclick="showExternalStaff()">
+                     <div class="container">
+                         <div class="middle-vis">
+                             <h3>Personal</h3>
+                         </div>
+                         <div class="text2">Personal externo del Hotel</div>
+                         <div class="text">Ver datos de empleados</div>
+                         <div class="text"> </div>
+                         <div class="text"> </div>
+                         <div class="text"> </div>
+                         <a class="abtn">Ver</a>
+                     </div>
+                 </a>
+             </li>
+             <li>
+                 <a onclick="showTurns()">
+                     <div class="container">
+                         <div class="middle-vis">
+                             <h3>Turno</h3>
+                         </div>
+                         <div class="text2">Turnos de trabajo</div>
+                         <div class="text">Ver datos de los bloques de trabajo</div>
+                         <div class="text"> </div>
+                         <a class="abtn" >Ver</a>
+                     </div>
+                 </a>
+             </li>
+             <li>
+                 <a onclick="showProviders()">
+                     <div class="container">
+                         <div class="middle-vis">
+                             <h3>Proveedores</h3>
+                         </div>
+                         <div class="text2">Informacion acerca de nuestros proveedores</div>
+                         <div class="text">Ver mas informacion</div>
+                         <div class="text"></div>
+                         <a class="abtn">Ver</a>
+                     </div>
+                 </a>
+
+             </li>
+         </ul>
+     </div></div>
+
+
+<!--Internal Staff Card-->
+ <div id="tableInternal" style='display:none;'>
+     <h2>Personal Interno</h2>
+     <table class="table">
+         <thead class="thead-light">
+         <tr>
+             <th scope="col">Nombre</th>
+             <th scope="col">Apellido</th>
+             <th scope="col">Posicion</th>
+             <th scope="col">Departamento</th>
+             <th scope="col">Salario</th>
+             <th scope="col">Turno</th>
+         </tr>
+         </thead>
+         <tbody id="bodyInternal">
+         </tbody>
+     </table>
+ </div>
+
+ <!--External Staff Card-->
+ <div id="tableExternal" style='display:none;'>
+     <h2>Personal Externo</h2>
+     <table class="table">
+         <thead class="thead-light">
+         <tr>
+             <th scope="col">Nombre</th>
+             <th scope="col">Apellido</th>
+             <th scope="col">Lugar de trabajo</th>
+         </tr>
+         </thead>
+         <tbody id="bodyExternal">
+         </tbody>
+     </table>
+ </div>
+
+ <!--Turns Card-->
+ <div id="tableTurns" style='display:none;'>
+     <h2>Turnos de Trabajo</h2>
+     <table class="table">
+         <thead class="thead-light">
+         <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Momento del dia</th>
+             <th scope="col">Dias</th>
+         </tr>
+         </thead>
+         <tbody id="bodyTurns">
+         </tbody>
+     </table>
+ </div>
+
+ <!--Provider Cards-->
+ <div id="tableProviders" style='display:none;'>
+     <h2>Turnos de Trabajo</h2>
+     <table class="table">
+         <thead class="thead-light">
+         <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Proveedor</th>
+             <th scope="col">Suplencia</th>
+         </tr>
+         </thead>
+         <tbody id="bodyProviders">
+         </tbody>
+     </table>
+ </div>
+
+ <!--Javascript-->
+ <script src="../../assets/js/main.js"></script>
+ <script type="text/javascript">
+     function el(selector) {
+         return document.getElementById(selector);
+     }
+     // Internal Staff
+     function showInternalStaff(){
+         document.getElementById('menu1').style.display = 'none';
+         document.getElementById('tableInternal').style.display = 'block';
+         getInternal();
+     }
+     function getInternal(){
+         // Get the mysql service
+         getInternalRows(function(rows){
+             var html = '';
+             rows.forEach(function(rows){
+                     html += '<tr>';
+                     html += '<td>';
+                     html += rows.first_name;
+                     html += '</td>';
+                     html += '<td>';
+                     html += rows.last_name;
+                     html += '</td>';
+                     html += '<td>';
+                     html += rows.position;
+                     html += '</td>';
+                     html += '<td>';
+                     html += rows.department;
+                     html += '</td>';
+                     html += '<td>';
+                     html += rows.salary;
+                     html += '</td>';
+                     html += '<td>';
+                     html += rows.turn;
+                        
+
+             });
+             document.getElementById('bodyInternal').innerHTML = html;
+         });
+     }
+     function getInternalRows(callback){
+         // Add the credentials to access your database
+         var connection = con();
+         // connect to mysql
+         connection.connect(function(err) {
+             // in case of error
+             if(err){
+                 console.log(err.code);
+                 console.log(err.fatal);
+             }
+         });
+         // Perform a query
+         query = 'SELECT * FROM `hotel`.`internal_staff`;';
+         connection.query(query, function(err, rows, fields) {
+             if(err){
+                 console.log("An error ocurred performing the query.");
+                 console.log(err);
+                 return;
+             }
+             callback(rows);
+         });
+         // Close the connection
+         connection.end(function(){
+             // The connection has been closed
+         });
+     }
+
+     // External Staff
+    function showExternalStaff() {
+        getExternal();
+        document.getElementById('menu1').style.display = 'none';
+        document.getElementById('tableExternal').style.display = 'block';
+        
+    }
+    function getExternal() {
+        // Get the mysql service
+        getExternalRows(function(rows){
+            var html = '';
+            rows.forEach(function(rows){
+                html += '<tr>';
+                html += '<td>';
+                html += rows.first_name;
+                html += '</td>';
+                html += '<td>';
+                html += rows.last_name;
+                html += '</td>';
+                html += '<td>';
+                html += rows.facility;
+                html += '</td>';
+                html += '</tr>';
+                    console.log(html);
+            });
+            document.getElementById('bodyExternal').innerHTML = html;
+        });
+    }
+    function getExternalRows(callback) {
+        // Add the credentials to access your database
+        var connection = con();
+        // connect to mysql
+        connection.connect(function(err) {
+            // in case of error
+            if(err){
+                console.log(err.code);
+                console.log(err.fatal);
+            }
+        });
+        // Perform a query
+        query = 'SELECT * FROM `hotel`.`external_staff`;';
+        connection.query(query, function(err, rows, fields) {
+            console.log(rows);
+            if(err){
+                console.log("An error ocurred performing the query.");
+                console.log(err);
+                return;
+            }
+            callback(rows);
+        });
+        // Close the connection
+        connection.end(function(){
+            // The connection has been closed
+        });
+    }
+
+    // Turns
+     function showTurns() {
+         document.getElementById('menu1').style.display = 'none';
+         document.getElementById('tableTurns').style.display = 'block';
+         getTurns()
+     }
+     function getTurns() {
+         // Get the mysql service
+         getTurnsRows(function(rows){
+             var html = '';
+             rows.forEach(function(rows){
+                 html += '<tr>';
+                 html += '<td>';
+                 html += rows.turn_id;
+                 html += '</td>';
+                 html += '<td>';
+                 html += rows.time_des;
+                 html += '</td>';
+                 html += '<td>';
+                 html += rows.days;
+             });
+             document.getElementById('bodyTurns').innerHTML = html;
+         });
+     }
+     function getTurnsRows(callback) {
+         // Add the credentials to access your database
+         var connection = con();
+         // connect to mysql
+         connection.connect(function(err) {
+             // in case of error
+             if(err){
+                 console.log(err.code);
+                 console.log(err.fatal);
+             }
+         });
+         // Perform a query
+         query = 'SELECT * FROM `hotel`.`turns`;';
+         connection.query(query, function(err, rows, fields) {
+             if(err){
+                 console.log("An error ocurred performing the query.");
+                 console.log(err);
+                 return;
+             }
+             callback(rows);
+         });
+         // Close the connection
+         connection.end(function(){
+             // The connection has been closed
+         });
+     }
+
+     //Providers
+     function showProviders() {
+         document.getElementById('menu1').style.display = 'none';
+         document.getElementById('tableProviders').style.display = 'block';
+         getProviders()
+     }
+     function getProviders() {
+         // Get the mysql service
+         getProvidersRows(function(rows){
+             var html = '';
+             rows.forEach(function(rows){
+                 html += '<tr>';
+                 html += '<td>';
+                 html += rows.provider_id;
+                 html += '</td>';
+                 html += '<td>';
+                 html += rows.provider_name;
+                 html += '</td>';
+                 html += '<td>';
+                 html += rows.provider_type;
+             });
+             document.getElementById('bodyProviders').innerHTML = html;
+         });
+     }
+     function getProvidersRows(callback) {
+         // Add the credentials to access your database
+         var connection = con();
+         // connect to mysql
+         connection.connect(function(err) {
+             // in case of error
+             if(err){
+                 console.log(err.code);
+                 console.log(err.fatal);
+             }
+         });
+         // Perform a query
+         query = 'SELECT * FROM `hotel`.`providers`;';
+         connection.query(query, function(err, rows, fields) {
+             if(err){
+                 console.log("An error ocurred performing the query.");
+                 console.log(err);
+                 return;
+             }
+             callback(rows);
+         });
+         // Close the connection
+         connection.end(function(){
+             // The connection has been closed
+         });
+     }
+
+ </script>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>
